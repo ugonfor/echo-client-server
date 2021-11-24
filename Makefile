@@ -1,20 +1,21 @@
-.PHONY : tc ts clean install uninstall
+.PHONY : tcp-client tcp-server clean install uninstall
 
-all: tc ts
+all: tcp-client tcp-server
 
-tc:
-	cd tc; make; cd ..
+tcp-client:
+	cd client; make; cd ..
 
-ts:
-	cd ts; make; cd ..
+tcp-server:
+	cd server; make; cd ..
 
 clean:
-	cd tc; make clean; cd ..
-	cd ts; make clean; cd ..
+	cd client; make clean; cd ..
+	cd server; make clean; cd ..
+	rm -f *.o
 
-install:
-	sudo cp bin/tcr/sbin
-	sudo cp bin/ts /usr/sbin
+install:	
+	sudo cp bin/tcp-server /usr/sbin
+	sudo cp bin/tcp-client /usr/sbin
 
 uninstall:
-	sudo rm /usr/sbin/tc /usr/sbin/ts
+	sudo rm /usr/sbin/tcp-client /usr/sbin/tcp-server

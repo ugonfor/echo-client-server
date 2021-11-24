@@ -1,11 +1,11 @@
-TARGET=../bin/tc
+TARGET=../bin/tcp-client
 CPPFLAGS+=-Wall -O2
 LDLIBS+=-pthread
 #LDLIBS+=-lws2_32 # for mingw
 
 all: $(TARGET)
 
-$(TARGET): tc.o ../mingw_net.o
+$(TARGET): tcp-client.o ../mingw_net.o
 	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 clean:
