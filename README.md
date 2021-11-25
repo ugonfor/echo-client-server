@@ -22,3 +22,8 @@ make
 
 ![image](asset/image.jpg)
 
+## Code Review comment
+* Use lock! need mutex...
+* Use wait and signal (for producer and consumer)
+* Use smart pointer (On my code, delete doesn't occur with no -e option)
+* Use volatile (for msg_queue.empty())
